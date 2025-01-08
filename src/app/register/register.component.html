@@ -1,0 +1,27 @@
+<div class="reg container mt-5 ">
+    <div class="row">
+        <div class="col-6 ">
+            <img src="https://th.bing.com/th/id/R.068d167dbaa2b7025f1de948367ccaeb?rik=cky9a0L%2fNzvORQ&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-food-plate-top-viewfood-objects-plate-941524640234gz2of.png&ehk=IxcVunR4jt32wTIlACSpOWCEc962bvE9DYv0Zf1xlqI%3d&risl=&pid=ImgRaw&r=0" width="400px"  height="400px" class="landingImg rounded-circle shadow " alt="">
+
+        </div>
+        <div class="col-6 col1 p-5 rounded shadow">
+            <form  [formGroup]="registerForm" (ngSubmit)="register()" class="mt-5">
+                <input type="text" formControlName="username" name="username" class="form-control " placeholder="username" >
+                @if(registerForm.get('username')?.errors && registerForm.get('username')?.touched ){
+                    <div class="text-danger fwbolder">*Invalid Username</div>
+                }
+                <input type="email" formControlName="email" name="email" class="form-control mt-3" placeholder="email" >
+                @if(registerForm.get('email')?.errors && registerForm.get('email')?.touched ){
+                    <div class="text-danger fwbolder">*Invalid email</div>
+                }
+                <input type="password" formControlName="password" name="password" class="form-control mt-3" placeholder="password" >
+                @if(registerForm.get('password')?.errors && registerForm.get('password')?.touched ){
+                    <div class="text-danger fwbolder">*Invalid password</div>
+                }
+                <div class=" text-center">
+                    <button class="btn btn-light">Sign Up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

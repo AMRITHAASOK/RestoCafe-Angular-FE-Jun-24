@@ -1,0 +1,68 @@
+<div class="container mt-5 rounded" >
+    <div class=" d-flex justify-content-between">
+        <h6>Filter</h6>
+        <h1>All Recipes</h1>
+        <input type="text" placeholder="Search recipe" class="form-control" style="width: 300px;">
+    </div>
+    <div class="row mt-5">
+        <div class="col-4">
+         <span class="btn" (click)="getAllRecipes()">All Category</span> 
+          <br>
+            <div class="btn-group" role="group" aria-label="Button group with nested dropdown"> 
+                <div >
+                  <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle my-3" data-bs-toggle="dropdown" aria-expanded="false"  data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                   Cuisine Type
+                  </button>
+                  <div class="collapse" id="collapseExample">
+                    <div class="">
+                    @for (item of cuisineArray; track $index) {
+                      <span class="fw-bolder me-2 btn" (click)="filterAllRecipes('cuisine',item)">{{item}} , </span>    
+                    }
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+              <br>
+              <div class="btn-group" role="group" aria-label="Button group with nested dropdown"> 
+                <div >
+                  <button id="btnGroupDrop2" type="button" class="btn btn-light dropdown-toggle my-3" data-bs-toggle="dropdown" aria-expanded="false"  data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+                   Meal Type
+                  </button>
+                  <div class="collapse" id="collapseExample1">
+                    <div class="">
+                        @for (item of newMealsArray; track $index) {
+                            <span class="fw-bolder me-2 btn" (click)="filterAllRecipes('mealType',item)">{{item}} , </span>    
+                          }                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+        </div>
+        <div class="col-8">
+            <div class="row">
+                @for (item of allRecipes | paginate: { itemsPerPage: 6, currentPage: p } | search:searchKey; track $index ) {
+               
+                    <div class="col-lg-4 ">
+                        <div (click)="viewRecipe(item.id)" class="card  my-4 px-3 pb-5 pt-3" style="height: 350px;width: 280px;">
+                            <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                                <img [src]=item.image width="250px"  height="200px" class="landingImg  shadow " alt="">
+                              <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                              </a>
+                            </div>
+                            <div class="card-body text-center">
+                             <h4>{{item.name}}</h4>
+                             <h6>{{item.cuisine}}</h6>
+                            </div>
+                          </div> 
+                    </div>
+                    
+            }
+            </div>
+
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+               
+        </div>
+    </div>
+</div>

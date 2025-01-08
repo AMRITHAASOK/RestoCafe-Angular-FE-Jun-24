@@ -1,0 +1,57 @@
+
+
+<div class="home container rounded mt-4 shadow">
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-4 text-light p-5">
+                <h1>The Easiest Way
+                    To Make Your
+                    Favorite Meal</h1>
+                    <p>Discover 100+ recipes in your hand with the best recipe. Help you to find the easiest way to cook.
+
+                    </p>
+                    <button class="btn btn-outline-light">Explore Recipes</button>
+            </div>
+            <div class="col-6 p-5">
+                <img src="https://th.bing.com/th/id/R.068d167dbaa2b7025f1de948367ccaeb?rik=cky9a0L%2fNzvORQ&riu=http%3a%2f%2fpurepng.com%2fpublic%2fuploads%2flarge%2fpurepng.com-food-plate-top-viewfood-objects-plate-941524640234gz2of.png&ehk=IxcVunR4jt32wTIlACSpOWCEc962bvE9DYv0Zf1xlqI%3d&risl=&pid=ImgRaw&r=0" width="400px"  height="400px" class="landingImg rounded-circle shadow " alt="">
+            </div>
+        </div>
+        
+</div>
+<div class="container mt-5">
+    <h2>Popular Recipe of the Week</h2>
+    <div class=" ">
+        
+            <p>Our Most popular recipes of the week</p>
+        
+       
+            <a routerLink="/all-recipes" style="float:right ;">View all</a>
+
+            <div class="row">
+                @for (item of allRecipe; track $index) {
+                    <div class="col-lg-4">
+                        <div class="card py-5">
+                            <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
+                                <img [src]=item.image width="100%"  height="400px" class="landingImg rounded-circle shadow " alt="">
+                              <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                              </a>
+                            </div>
+                            <div class="card-body">
+                             <h4>{{item.name}}</h4>
+                            </div>
+                          </div>
+                    </div>
+                }
+
+               
+            </div>
+
+
+        
+    </div>
+</div>
+
+<div class="banner container mt-5 rounded " style=" width:'100%'; height: '400px';">
+
+</div>

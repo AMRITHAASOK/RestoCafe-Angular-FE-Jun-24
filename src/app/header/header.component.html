@@ -1,0 +1,46 @@
+<nav class="nav container mt-5  navbar navbar-expand-lg rounded shadow">
+    <div class="container-fluid">
+      <a class="navbar-brand text-light" href=""> <i class="fa-solid fa-utensils me-2 fs-2"></i> RestoCafe</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto text-light mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-light" aria-current="page" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link text-light" routerLink="/all-recipes">Recipe</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link text-light" routerLink="/about">About</a>
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link text-light" routerLink="/contact">Contact</a>
+          </li>
+         
+         
+        </ul>
+        <ul class="navbar-nav ms-auto text-light mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa-solid fa-user"></i> Hi {{isLoggedName}}
+                </a>
+                @if (isLoggedInStatus) {
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
+                    <li><a class="dropdown-item" routerLink="/saved-recipe">Recipe Collection</a></li>
+                    <li><a class="dropdown-item" >Logout</a></li>  
+                  </ul>
+                }
+                @else {
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" routerLink="/login">Login</a></li>
+                    <li><a class="dropdown-item" routerLink="/register">Register</a></li>
+                  </ul>
+                }
+              </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

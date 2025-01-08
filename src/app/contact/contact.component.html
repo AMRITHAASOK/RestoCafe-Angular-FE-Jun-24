@@ -1,0 +1,35 @@
+<div class="test rounded shadow p-5 container mt-5 ">
+    <h1 class=" text-center m-5">Contact Us</h1>
+    <p style="text-align: justify;" class="px-5 mx-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias qui vel fuga doloremque dicta modi quo error facilis ea tempora, optio dignissimos adipisci quibusdam impedit nisi porro incidunt! Adipisci, magnam.</p>
+  
+</div>  
+<div class="row container p-5">
+    <div class="col-2"></div>
+    <div class="col-4">
+        <h6>Get In Touch</h6>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore neque a facilis expedita ea quod quidem, dolorum minus, aspernatur tempore illum magni incidunt alias voluptatibus vel nisi, tempora repudiandae architecto?</p> 
+
+        <ul style="list-style: none;">
+            <li><b>Address</b></li>
+            <li>NYC 4567, PO Berlin.</li>
+            <li><b>Phone Number</b></li>
+            <li>9086754321</li>
+            <li><b>E Mail</b></li>
+            <li>xyzgmail.com</li>
+        </ul>
+    </div>
+    <div class="col-2"></div>
+    <div class="col-4 shadow p-5">
+        <h4 class="text-center mb-3">Client Testimony</h4>
+       <form [formGroup]="testimonyForm" (ngSubmit)="addTestimony()">
+        <input formControlName="name" name="name" type="text" placeholder="Enter your name " class="form-control mb-3">
+        <input formControlName="email" name="email" type="text" placeholder="Enter your Email" class="form-control mb-3">
+        <textarea formControlName="message" name="message" name="" id="" placeholder="Enter your Message      " class="form-control mb-3" ></textarea>
+        <input type="checkbox" class="me-2">
+        <span for="">By Submitting, your agreeing the terms and condition of our website. We may use your details in our site.</span>
+        <div class="div text-center">
+                <button class="btn btn-success m-4 ">Submit</button>
+        </div>
+       </form>
+    </div>
+</div>
