@@ -44,7 +44,7 @@
                 @for (item of allRecipes | paginate: { itemsPerPage: 6, currentPage: p } | search:searchKey; track $index ) {
                
                     <div class="col-lg-4 ">
-                        <div (click)="viewRecipe(item.id)" class="card  my-4 px-3 pb-5 pt-3" style="height: 350px;width: 280px;">
+                        <div (click)="viewRecipe(item._id)" class="card  my-4 px-3 pb-5 pt-3" style="height: 350px;width: 280px;">
                             <div class="bg-image hover-overlay" data-mdb-ripple-init data-mdb-ripple-color="light">
                                 <img [src]=item.image width="250px"  height="200px" class="landingImg  shadow " alt="">
                               <a href="#!">

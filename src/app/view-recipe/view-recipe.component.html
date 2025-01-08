@@ -1,1 +1,53 @@
-<p>view-recipe works!</p>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-6">
+            <img [src]="recipe.image" width="100%" alt="">
+        </div>
+        <div class="col-6">
+            <h1>{{recipe.name}}</h1>
+            <ul class="d-flex justify-content-between" style="list-style: none;">
+                <li>Cuisine:{{recipe.cuisine}} </li>
+                <li>
+                    Servings: {{recipe.servings}}
+                </li>
+                <li>
+                    Mode of Cooking: {{recipe.difficulty}}
+                </li>
+            </ul>
+            <br> <br>
+            <ul class="d-flex justify-content-between" style="list-style: none;">
+                <li>Preparation Time : {{recipe.prepTimeMinutes}} </li>
+                <li>
+                    Cooking Time :{{recipe.
+cookTimeMinutes}}
+                </li>
+                <li>
+                Calorie Per Servings :{{recipe.
+                    caloriesPerServing
+                    }}
+                </li>
+            </ul>
+
+            <h3>Ingredients Needed</h3>
+          <ol>
+            @for (item of recipe.ingredients; track $index) {
+               
+                <li> {{item}}</li>
+            
+            }
+          </ol>
+
+            <h3>Cooking Instruction</h3>
+            <ol>
+                @for (item of recipe.instructions; track $index) {
+                   
+                    <li> {{item}}</li>
+                
+                }
+              </ol>
+
+        </div>
+    </div>
+
+</div>

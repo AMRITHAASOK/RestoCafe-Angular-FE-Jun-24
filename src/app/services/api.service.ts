@@ -1,5 +1,5 @@
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -24,7 +24,16 @@ export class ApiService {
   login(body:any){
     return this.http.post(`${this.serverUrl}/login`,body)
   }
+
+  appendToken(){
+    let headers = new HttpHeaders()
+    let token = sessionStorage.getItem("token")
+    if(token){
+      headers=headers.append("Authorization",`Bearer ${token}`)
+    }
+    return {headers}
+  }
   viewRecipeAPI(id:any){
-    
+    return this.http.get(`${this.serverUrl}/viewRecipe/${id}`,this.appendToken())
   }
 }

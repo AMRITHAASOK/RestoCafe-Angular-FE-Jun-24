@@ -20,6 +20,7 @@ export class RecipesComponent implements OnInit {
   dummyArray:any=[]
   searchKey:string="" //to hold search value 
   p: number = 1;
+  Recipe:any={}
   ngOnInit(): void {
     this.getAllRecipes()
   }
@@ -61,6 +62,10 @@ console.log(this.newMealsArray);
       if(sessionStorage.getItem("token")){
         //navigate to view recipe page
         this.route.navigateByUrl(`view-recipe/${recipeId}`)
+        this.api.viewRecipeAPI(recipeId).subscribe((res:any)=>{
+          console.log(res);
+          this.Recipe=res
+        })
       }
       else{
         alert("You dont have the right to access the page")
