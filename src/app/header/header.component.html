@@ -5,6 +5,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
+       @if (isLoggedInStatus) {
         <ul class="navbar-nav mx-auto text-light mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active text-light" aria-current="page" routerLink="/">Home</a>
@@ -21,16 +22,20 @@
          
          
         </ul>
+       }
         <ul class="navbar-nav ms-auto text-light mb-2 mb-lg-0">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="fa-solid fa-user"></i> Hi {{isLoggedName}}
+                 @if (isLoggedInStatus) {
+                  <i class="fa-solid fa-user"></i> Hey, {{isLoggedName}}!
+
+                 }
                 </a>
                 @if (isLoggedInStatus) {
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
                     <li><a class="dropdown-item" routerLink="/saved-recipe">Recipe Collection</a></li>
-                    <li><a class="dropdown-item" >Logout</a></li>  
+                    <li><a class="dropdown-item" (click)="logout()" >Logout</a></li>  
                   </ul>
                 }
                 @else {

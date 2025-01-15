@@ -36,4 +36,23 @@ export class ApiService {
   viewRecipeAPI(id:any){
     return this.http.get(`${this.serverUrl}/viewRecipe/${id}`,this.appendToken())
   }
+  relatedRecipeAPI(cuisine:string){
+    return this.http.get(`${this.serverUrl}/relatedRecipe?cuisine=${cuisine}`,this.appendToken())
+  }
+  addToDownloadRecipeAPI(recipeId:any,reqBody:any){
+    return this.http.post(`${this.serverUrl}/addToDownloadRecipe/${recipeId}`,reqBody,this.appendToken())
+  }
+  savedRecipeAPI(recipeId:any,reqBody:any){
+    return this.http.post(`${this.serverUrl}/savedRecipe/${recipeId}`,reqBody,this.appendToken())
+  }
+  getSavedRecipeAPI()
+  { 
+    return this.http.get(`${this.serverUrl}/getSavedRecipe`,this.appendToken())
+  }
+  deleteRecipeAPI(recipeId:any){
+    return this.http.delete(`${this.serverUrl}/deleteSavedRecipe/${recipeId}`,this.appendToken())
+  }
+  profileUpdate(reqBody:any){
+    return this.http.post(`${this.serverUrl}/user/edit`,reqBody,this.appendToken())
+  }
 }

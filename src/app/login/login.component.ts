@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
+import { HeaderComponent } from "../header/header.component";
+import { FooterComponent } from "../footer/footer.component";
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, HeaderComponent, FooterComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -32,15 +34,16 @@ loginForm:FormGroup
               console.log(res);
               sessionStorage.setItem("user",JSON.stringify(res.user))
               sessionStorage.setItem("token",res.token)
-              alert("Login Successful..")
-              if(res.user.role="User"){
+              this.loginForm.reset()
+              if(res.user.role=="User"){
+                alert("Login Successful..")
                 this.router.navigateByUrl('/')
-                this.loginForm.reset()
               }
               else{
                 //admin panel
+                this.router.navigateByUrl('/admin')
               }
-          
+              //window.location.reload()
             },
             error:(err:any)=>{
               console.log(err);

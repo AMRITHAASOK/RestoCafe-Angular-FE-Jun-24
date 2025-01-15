@@ -1,1 +1,13 @@
-<p>profile works!</p>
+<app-header></app-header>
+
+<div class="container">
+    <div class="container w-25 border shadow text-center mt-5 p-5 rounded">
+        <h1>Profile</h1>
+       <label for="img">
+        <input type="file" (change)="getFile($event)" id="img" style="display: none;" >
+        <img [src]="profileImage" alt="" width="100%">
+       </label>
+            <button (click)="updateProfile()" class="btn btn-primary mt-5"  >Upload</button>
+    </div>
+</div>
+<app-footer></app-footer>

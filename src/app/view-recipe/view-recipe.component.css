@@ -1,0 +1,137 @@
+/* From Uiverse.io by andrew-demchenk0 */ 
+.button {
+    --main-focus: #2d8cf0;
+    --font-color: #323232;
+    --bg-color-sub: #dedede;
+    --bg-color: #eee;
+    --main-color: #323232;
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .button, .button__icon, .button__text {
+    transition: all 0.3s;
+  }
+  
+  .button .button__text {
+    transform: translateX(22px);
+    color: var(--font-color);
+    font-weight: 600;
+  }
+  
+  .button .button__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 100%;
+    width: 39px;
+    background-color: var(--bg-color-sub);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button .svg {
+    width: 20px;
+    fill: var(--main-color);
+  }
+  
+  .button:hover {
+    background: var(--bg-color);
+  }
+  
+  .button:hover .button__text {
+    color: transparent;
+  }
+  
+  .button:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+  }
+  
+  .button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px var(--main-color);
+  }
+ 
+.download-button {
+    position: relative;
+    border-width: 0;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    z-index: 1;
+  }
+  
+  .download-button .docs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 40px;
+    padding: 0 10px;
+    border-radius: 4px;
+    z-index: 1;
+    background-color: #242a35;
+    border: solid 1px #e8e8e82d;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  
+  .download-button:hover {
+    box-shadow:
+      rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px,
+      rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px,
+      rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+  
+  .download {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%;
+    margin: 0 auto;
+    z-index: -1;
+    border-radius: 4px;
+    transform: translateY(0%);
+    background-color: #01e056;
+    border: solid 1px #01e0572d;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  
+  .download-button:hover .download {
+    transform: translateY(100%);
+  }
+  
+  .download svg polyline,
+  .download svg line {
+    animation: docs 1s infinite;
+  }
+  
+  @keyframes docs {
+    0% {
+      transform: translateY(0%);
+    }
+  
+    50% {
+      transform: translateY(-15%);
+    }
+  
+    100% {
+      transform: translateY(0%);
+    }
+  }
+  

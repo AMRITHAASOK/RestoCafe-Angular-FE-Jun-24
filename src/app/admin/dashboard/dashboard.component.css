@@ -1,0 +1,12 @@
+.row1{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.col-3{
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    
+}

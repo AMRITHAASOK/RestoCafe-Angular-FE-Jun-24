@@ -1,1 +1,26 @@
-<p>saved-recipe works!</p>
+<app-header></app-header>
+
+<div class="container mt-5">
+    <h1 class="text-center m-5">Your Saved Recipe Collections</h1>
+
+    @if (savedRecipe) {
+            <div class="row">
+                @for (item of savedRecipe; track $index) {
+                    <div class="col">
+                        <div class="card p-5 shadow" style="width: 400px;">
+                            <img [src]="item.image" alt="" width="300px">
+                            <div class="d-flex mt-4">
+                                <h3>{{item.name}}</h3>
+                            <i (click)="  deleteRecipe(item._id)" class="fa-solid fa-trash text-danger"></i>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+    }
+    @else {
+        <p class="text-center m-5 fw-bolder">Empty Collection</p>
+    }
+
+</div>
+<app-footer></app-footer>
