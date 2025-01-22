@@ -16,9 +16,10 @@ export class HomeComponent implements OnInit{
     constructor(private api:ApiService){}
 
     allRecipe:any=[]
-
+    feedbacks:any=[]
     ngOnInit(): void {
     this.getAllRecipe()
+    this.getAllApprovedFeedBacks()
     }
 
      getAllRecipe(){
@@ -27,6 +28,13 @@ export class HomeComponent implements OnInit{
         this.allRecipe=res.slice(0,6)
         console.log(this.allRecipe);
         
+      })
+     }
+
+     getAllApprovedFeedBacks(){
+      this.api.getAllApprovedFeedbacksAPI().subscribe((res:any)=>{
+        console.log(res);
+        this.feedbacks=res
       })
      }
 }

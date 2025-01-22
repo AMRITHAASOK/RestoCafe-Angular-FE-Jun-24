@@ -52,6 +52,20 @@
     </div>
 </div>
 
+<div class="container">
+    <div class="row">
+<h2 class="text-center m-5">Feedbacks from clients</h2>
+       @for (item of feedbacks; track $index) {
+        <div class="col-4">
+                <div class="card shadow p-5">
+                    <h4>{{item.name}}</h4>
+                    <h3>{{item.message}}</h3>
+                </div>
+        </div>
+       }
+    </div>
+</div>
+
 <div class="banner container mt-5 rounded " style=" width:'100%'; height: '400px';">
 
 </div>

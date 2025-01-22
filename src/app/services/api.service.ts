@@ -55,4 +55,32 @@ export class ApiService {
   profileUpdate(reqBody:any){
     return this.http.post(`${this.serverUrl}/user/edit`,reqBody,this.appendToken())
   }
+  deleteAPI(recipeId:any){
+    return this.http.delete(`${this.serverUrl}/deleteRecipe/${recipeId}`,this.appendToken())
+  }
+  getAllUsersAPI(){
+    return  this.http.get(`${this.serverUrl}/getAllUsers`)
+  }
+  getAllDownloadsAPI(){
+    return  this.http.get(`${this.serverUrl}/getAllDownloads`)
+  }
+  getAllFeedbacksAPI(){
+    return  this.http.get(`${this.serverUrl}/getAllFeedbacks`)
+  }
+  updateFeedbacksAPI(feedbackId:string,status:string){
+    return this.http.get(`${this.serverUrl}/updateFeedback/${feedbackId}?status=${status}`)
+  }
+
+
+  getAllApprovedFeedbacksAPI(){
+    return  this.http.get(`${this.serverUrl}/getAllApprovedFeedbacks`)
+  }
+
+  addRecipe(body:any){
+    return this.http.post(`${this.serverUrl}/addRecipe`,body)
+  }
+  
+  updateRecipeAPI(id:string,body:any){
+    return this.http.put(`${this.serverUrl}/updateRecipe/${id}`,body)
+  }
 }
